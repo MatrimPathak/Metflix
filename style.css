@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*
+{
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    background: #333;
+    position: relative;
+}
+body::-webkit-scrollbar
+{
+    width: 0;
+}
+.wrapper
+{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.wrapper.active
+{
+    position: fixed;
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+.banner-carousel
+{
+    overflow: hidden;
+}
+.banners
+{
+    display: flex;
+    padding: 0 16.5vw;
+    transition: transform 0.3s linear;
+}
+.banner
+{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px;
+    width: 64.45vw;
+    height: 36.25vw;
+    cursor: pointer;
+}
+.movies-label, .tv-label
+{
+    margin: 30px 0 10px 20px;
+    color: white;
+    font-size: 30px;
+}
+.banner-label
+{
+    margin: 30px 0 10px 20px;
+    color: white;
+    font-size: 30px;
+    padding-left: 16.5vw;
+}
+.left-cover
+{
+    width: 17vw;
+    height: 36.25vw;
+    position: absolute;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(51, 51, 51, 1) 75%);
+    z-index: 1;
+    left: -10px;
+}
+.right-cover
+{
+    width: 17vw;
+    height: 36.25vw;
+    position: absolute;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(51, 51, 51, 1) 75%);
+    z-index: 1;
+    right: -10px;
+}
+.left-cover span
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    cursor: pointer;
+}
+.right-cover span
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-0%, -50%);
+    cursor: pointer;
+}
+.movies-label
+{
+    margin-top: 10px;
+}
+.movies, .tv-shows, .hindi-movies, .hindi-shows, .telugu-movies, .tamil-movies, .bengali-movies
+{
+    display: flex;
+    overflow: auto;
+}
+.similar-movies
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 0;
+    margin: 20px 0 20px 20px;
+}
+.movie, .show
+{
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.similar-movie
+{
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.movie-poster, .show-poster
+{
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    border-radius: 5%;
+}
+.banner-poster
+{
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.similar-movie-poster
+{
+    width: 225px;
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.movie-details, .show-details, .banner-details
+{
+    background: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    border-radius: 0 0 10px 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    justify-content: space-between;
+}
+.similar-movie-details
+{
+    background: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    border-radius: 0 0 10px 10px;
+    width: 225px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    justify-content: space-between;
+}
+.movie-name-cast, .show-name-cast
+{
+    padding: 0 10px;
+    width: 100%;
+    word-wrap: break-word;
+}
+.banner-name-cast
+{
+    padding: 10px 30px;
+    width: 100%;
+}
+.movie-name, .show-name
+{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+.banner-name
+{
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+}
+.movie-cast, .show-cast
+{
+    color: white;
+    font-size: 13px;
+}
+.banner-cast
+{
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+.banner-synopsis
+{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+.movie-rating, .show-rating
+{
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-weight: 600;
+}
+.banner-rating
+{
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.container-bg
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    border-radius: 10px;
+    background: rgb(0, 0, 0, 0.8);
+    display: none;
+}
+.container-bg.active
+{
+    display: block;
+}
+.container
+{
+    display: none;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+.container.active
+{
+    display: flex;
+}
+.item-details
+{
+    width: 750px;
+    border-radius: 10px;
+    height: max-content;
+    background: #333;
+    position: relative;
+    overflow-y: auto;
+}
+.item-banner
+{
+    position: relative;
+    display: flex;
+}
+.item-poster
+{
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px 10px 0 0;
+}
+.play
+{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.close
+{
+    margin: 0;
+    position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-150%, 50%);
+    cursor: pointer;
+}
+.material-icons-outlined
+{
+    color: white;
+    position: absolute;
+}
+.overview
+{
+    padding: 0 20px;
+}
+.seasons
+{
+    position: relative;
+    width: max-content;
+}
+.item-seasons
+{
+    background: black;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 20px 0 10px 0;
+}
+.select-seasons
+{
+    color: white;
+    background: black;
+    width: 119%;
+    font-size: 19px;
+    position: absolute;
+    transform: translate(-8%, 0%);
+    display: none;
+}
+.select-seasons.active
+{
+    display: block;
+}
+.season
+{
+    margin: 3.5px 10px;
+}
+.item-name
+{
+    color: white;
+    font-size: 25px;
+    padding: 15px 0 0 20px;
+}
+.item-season-details
+{
+    color: white;
+    font-size: 19px;
+    padding: 15px 0 0 20px;
+}
+.item-cast
+{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+    padding-left: 20px;
+}
+.item-cast a
+{
+    cursor: pointer;
+}
+.item-cast a:hover
+{
+    text-decoration: underline;
+}
+.item-synopsis
+{
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+.similar-movies-label
+{
+    color: white;
+    padding-left: 20px;
+    font-size: 25px;
+}
+.episode
+{
+    padding: 5px 20px;
+    display: flex;
+}
+.episode:last-child
+{
+    padding: 5px 20px 20px 20px;
+}
+.thumbnail
+{
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.episode-details
+{
+    display: flex;
+    align-items: flex-start;
+}
+.episode-name-details
+{
+    margin-left: 10px;
+}
+.episode-name
+{
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+.episode-synopsis
+{
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+}
+.person-container
+{
+    color: white;
+    width: 750px;
+    background: #333;
+    border-radius: 10px;
+    height: max-content;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: none;
+}
+.person-container.active
+{
+    display: block;
+}
+.person-profile-pic
+{
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5%;
+}
+.person-details
+{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+.person-name-details
+{
+    margin-left: 10px;
+}
+.person-name
+{
+    font-size: 25px;
+}
+.person-date-place
+{
+    padding: 10px 0;
+}
+.person-biography
+{
+    margin: 20px;
+}
+.person-biography p
+{
+    font-size: 23px;
+}
+.person-movies, .person-shows
+{
+    font-size: 20px;
+}
+.person-movies .movies, .person-shows .shows
+{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px 0;
+    margin: 20px 5px;
+}
+.person-movie
+{
+    height: 300px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.person-movie-poster, .person-show-poster
+{
+    width: 225px;
+    height: 100%;
+    display: flex;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.person-movie-details, .person-show-details
+{
+    background: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    border-radius: 0 0 10px 10px;
+    width: 225px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    position: absolute;
+    justify-content: space-between;
+}
+.person-movies-label, .person-shows-label
+{
+    padding: 20px;
+    font-size: 23px;
+}
