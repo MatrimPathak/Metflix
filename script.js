@@ -12,7 +12,7 @@ APITVURL = "https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api
 APITRENDINGURL = "https://api.themoviedb.org/3/trending/all/day?api_key="+APIKEY,
 APIREGIONALURL = "&with_original_language=",
 VIDEOPATH = "https://www.youtube.com/watch?v=";
-IMGPATH = "https://image.tmdb.org/t/p/w1280";
+IMGPATH = "https://image.tmdb.org/t/p/original";
 
 getTrending(APITRENDINGURL);
 getMovies(APIMOVIEURL);
